@@ -1,14 +1,41 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content class="ion-padding">
+  
+    <ion-input type="text" [(ngModel)]="newTodo" placeholder="Add new Todo" expand="block" ></ion-input>
+    <ion-button (click)="addTodo()" expand="block" color="secondary">
+      <ion-icon name="logo-ionic" slot="start"></ion-icon>
+      Add Todo</ion-button>
+    
+    <ion-list>
+      <ion-item *ngFor="let todo of todos">
+        {{ todo }}
+      </ion-item>
+    </ion-list>
+
+   
+    <ion-button (click)="captureImage()" expand="block" color="secondary">
+        <ion-icon name="logo-ionic" slot="start"></ion-icon>
+     Capture</ion-button>
+    
+      <img [src]="myImage">
+
+
+    <p> {{ myVar }} </p> 
+  
+
+    {{ foo() }}
+  <ion-button (click)="openPage()" expand="block" color="warning">
+    Open Page
+  </ion-button>
+
+  <ion-button routerLink="/details" expand="block" color="danger">
+      Open Page with router
+    </ion-button>
 </ion-content>
